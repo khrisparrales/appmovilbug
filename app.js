@@ -3,10 +3,26 @@ var numberrandom = Math.floor((Math.random() * arrayrandommovie.length - 1) + 1)
 var randommovie = arrayrandommovie[numberrandom];
 var e = 0;
 console.log(10 % 5);
+var se = 'batman';
+
+function buscarPopup() {
+
+
+    var s = document.getElementById('txtsearch').value;
+    console.log(s);
+    if (s !== null) {
+        e = 0;
+        f = 1;
+        se = s;
+        document.getElementById('pt').innerHTML = e + "  " + f;
+        apiCall();
+    }
+
+}
 
 function apiCall() {
 
-    $.getJSON('https://www.omdbapi.com/?i=tt3896198&apikey=f1d6c99&s=batman&page=' + f).then(function(response) {
+    $.getJSON('https://www.omdbapi.com/?i=tt3896198&apikey=f1d6c99&s=' + se + '&page=' + f).then(function(response) {
 
             console.log(response.Search);
             console.log(response.Search[e].Released);
@@ -34,7 +50,6 @@ function abrirPopup() {
         console.log(pag);
         apiCall();
     } else {
-        pag = pag + 10;
         f = f + 1;
         e = 0;
         apiCall();
